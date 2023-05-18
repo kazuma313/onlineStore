@@ -1,7 +1,6 @@
 package logincontrollers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
