@@ -12,27 +12,7 @@
       {{ end }}
     </select>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Category</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ range $index, $value := .categories }}
-        <tr>
-          <th scope="row">{{ $index }}</th>
-          <td>{{ .Category }}</td>
-          <td>
-            <a href="/productCategory/edit?{{ .Category_id }}" class="btn btn-primary">Edit</a>
-            <a href="" class="btn btn-danger" onclick="return alert('ingin menghapus data {{ .Category }}?')">Delete</a>
-          </td>
-        </tr>
-        {{ end }}
-      </tbody>
-    </table>
+    <table class="table"></table>
   </body>
 </html>
 
@@ -96,7 +76,7 @@
             <td>${element.product}</td>
             <td>${element.price}</td>
             <td>
-              <a href="/productCategory/edit" class="btn btn-primary">add Chart</a>
+              <a href="/productCategory/add" class="btn btn-primary">add Chart</a>
             </td>
           </tr>
         </tbody>`;
@@ -106,4 +86,3 @@
       });
   });
 </script>
-"

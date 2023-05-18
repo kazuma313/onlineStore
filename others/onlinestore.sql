@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 18, 2023 at 06:11 PM
+-- Generation Time: May 18, 2023 at 06:59 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -61,7 +61,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `costumer_id`, `product_id`) VALUES
-(1, 3, 2);
+(1, 3, 2),
+(2, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -152,7 +153,7 @@ ALTER TABLE `costumer`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`

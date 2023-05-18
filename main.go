@@ -6,7 +6,6 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/kazuma313/onlineStore/config"
-	homecontrollers "github.com/kazuma313/onlineStore/controllers/homeControllers"
 	logincontrollers "github.com/kazuma313/onlineStore/controllers/loginControllers"
 	productcategorycontrollers "github.com/kazuma313/onlineStore/controllers/productCategoryControllers"
 	registercontrollers "github.com/kazuma313/onlineStore/controllers/registerControllers"
@@ -15,13 +14,14 @@ import (
 func main() {
     router := mux.NewRouter()
 
-	router.HandleFunc("/", homecontrollers.Index)
-	router.HandleFunc("/productCategory", productcategorycontrollers.Index)
+	// router.HandleFunc("/", homecontrollers.Index)
+	// router.HandleFunc("/productCategory", productcategorycontrollers.Index)
+	router.HandleFunc("/", productcategorycontrollers.Index)
+	router.HandleFunc("/productCategory/add", func (w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "haven't Done")
+	})
+
 	router.HandleFunc("/api/product/{category_id}", productcategorycontrollers.Api)
-	router.HandleFunc("/productCategory/add", productcategorycontrollers.Add)
-	router.HandleFunc("/productCategory/edit", productcategorycontrollers.Edit)
-	router.HandleFunc("/productCategory/delete", productcategorycontrollers.Delete)
-	router.HandleFunc("/productCategory/view", productcategorycontrollers.View)
 
 	router.HandleFunc("/login", logincontrollers.Login)
 	router.HandleFunc("/login", logincontrollers.Auth)

@@ -1,7 +1,8 @@
 package entities
 
 type Costumer struct {
-	Email    string
-	Username string
-	Password string
+	Costumer_id int
+	Email       string
+	Username    string
+	Password    string
 }
