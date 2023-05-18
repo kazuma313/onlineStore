@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Category</title>
+  </head>
+  <body>
+    <select class="form-select" aria-label="Default select example">
+      {{ range $value := .categories }}
+      <option value="{{ $value.Category_id }}">{{ $value.Category }}</option>
+      {{ end }}
+    </select>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Category</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $index, $value := .categories }}
+        <tr>
+          <th scope="row">{{ $index }}</th>
+          <td>{{ .Category }}</td>
+          <td>
+            <a href="/productCategory/edit?{{ .Category_id }}" class="btn btn-primary">Edit</a>
+            <a href="" class="btn btn-danger" onclick="return alert('ingin menghapus data {{ .Category }}?')">Delete</a>
+          </td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </body>
+</html>
+
+<script>
+  let formSelect = document.querySelector(".form-select");
+  let tabel = document.querySelector(".table");
+
+  fetch("/api/product/" + formSelect.value)
+    .then((Response) => Response.json())
+    .then((Response) => {
+      form_tabel = `<thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Product</th>
+          <th scope="col">Harga</th>
+          <th scope="col">Action</th>
+        </tr>
+  </thead>`;
+
+      count = 1;
+
+      Response.forEach((element) => {
+        console.log(element);
+        form_tabel += `<tbody>
+          <tr>
+            <th scope="row">${count}</th>
+            <td>${element.product}</td>
+            <td>${element.price}</td>
+            <td>
+              <a href="/productCategory/edit" class="btn btn-primary">add Chart</a>
+            </td>
+          </tr>
+        </tbody>`;
+        count++;
+      });
+      tabel.innerHTML = form_tabel;
+    });
+
+  formSelect.addEventListener("change", async function () {
+    const optionValue = this.value;
+
+    await fetch("/api/product/" + optionValue)
+      .then((Response) => Response.json())
+      .then((Response) => {
+        form_tabel = `<thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Product</th>
+          <th scope="col">Harga</th>
+          <th scope="col">Action</th>
+        </tr>
+  </thead>`;
+
+        count = 1;
+
+        Response.forEach((element) => {
+          console.log(element);
+          form_tabel += `<tbody>
+          <tr>
+            <th scope="row">${count}</th>
+            <td>${element.product}</td>
+            <td>${element.price}</td>
+            <td>
+              <a href="/productCategory/edit" class="btn btn-primary">add Chart</a>
+            </td>
+          </tr>
+        </tbody>`;
+          count++;
+        });
+        tabel.innerHTML = form_tabel;
+      });
+  });
+</script>
+"
