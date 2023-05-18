@@ -1,7 +1,7 @@
 # onlineStore
 ## Deskripsi
 proyek ini merupakan online store application yang mana pengguna dapat memesan produk-produk yang tersedia berdasarkan kategori. proyek ini
-berfokus kepada backend.
+berfokus kepada backend. ini adalah proyek pertama saya menggunakan GOLANG dan masih perlu banyak belajar tentunya.
 
 ## Note
 1. import file sql ke database pada file others
