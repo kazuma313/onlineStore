@@ -1,41 +1,26 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
+    <title>register</title>
   </head>
   <body>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-    </div>
-    <div class="mb-3">
-      <label for="inputPassword5" class="form-label">Password</label>
-      <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" />
-    </div>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
-  </head>
-  <body>
-    <form method="POST" action="/login">
+    <form method="POST" action="/register">
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+        <label for="exampleFormControlInput1" class="form-label">email</label>
+        <input type="email" class="form-control" id="email" name="email" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Username</label>
+        <input type="username" class="form-control" id="username" name="username" />
       </div>
       <div class="mb-3">
         <label for="inputPassword5" class="form-label">Password</label>
-        <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" />
+        <input type="password" id="inputPassword5" class="form-control" name="password" />
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-primary center">Submit</button>
-        <a class="btn btn-secondary" href="/Register" role="button"> Register </a>
+        <a class="btn btn-secondary" href="/login" role="button"> login </a>
       </div>
     </form>
   </body>
